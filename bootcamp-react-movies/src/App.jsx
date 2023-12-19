@@ -3,6 +3,10 @@ import MyFirstButton from './user/get/ui/Button';
 import { getUser } from './user/get/application/get-user';
 import { useEffect, useState } from 'react';
 import { UserDetails } from './user/user-details/ui/UserDetails';
+import UserPage from './user/page/UserPage';
+import { Provider } from 'react-redux';
+import EcomerceStore from './redux/store';
+import { AppRouter } from './AppRouter';
 
 function App() {
 
@@ -44,6 +48,7 @@ function App() {
 
   return (
     <>
+    {/*
       <MyFirstButton
         text={'Get User '}
         click={get}
@@ -60,6 +65,10 @@ function App() {
         </>
         : 'Primero busque un user....'
       }
+    */}
+    <Provider store={EcomerceStore}>
+      <AppRouter/>
+    </Provider>
     </>
   )
 }
