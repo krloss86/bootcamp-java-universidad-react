@@ -42,7 +42,7 @@ function UserPage() {
     }
 
     return (
-        <>
+        <div className='col-sm-12 col-md-6 col-lg 4'>
             {
                 JSON.stringify(userState)
             }
@@ -58,7 +58,7 @@ function UserPage() {
             <button onClick={reiniciarUsuario}>
                 Reset User
             </button>
-        </>
+        </div>
     )
 }
 /*formatear codigo: alt+shift+f */
