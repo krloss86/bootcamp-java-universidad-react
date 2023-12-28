@@ -19,7 +19,15 @@ function Navbar (){
             </NavLink> |
             <NavLink to={routes.publicas.REQ_RES}>
                 Reqres
-            </NavLink>
+            </NavLink> | 
+            <NavLink to={routes.publicas.CONTEXT_PAGE}>
+                Context
+            </NavLink> |
+            <NavLink to={routes.publicas.CONTEXT_VIEW_PAGE}>
+                View Context
+            </NavLink> |
+            <NavLink to={routes.privates.ADMIN}>Admin</NavLink>|
+            <NavLink to={routes.privates.ACCOUNT}>Account</NavLink>
         </>
     )
 }

@@ -5,8 +5,11 @@ import "primereact/resources/themes/lara-light-cyan/theme.css";
 import { findResource } from '../application/find/find-data';
 import { resourceRepository } from '../infrastructure/fetch-resources-repository';
 import { appConfig } from "../../config";
+import { useNavigate } from 'react-router-dom';
 
 function ReqResPage() {
+
+    const history = useNavigate();
 
     const findData = async ()=>  {
         // usando un caso de uso > infrastructure  > domain
@@ -17,6 +20,10 @@ function ReqResPage() {
         console.log(myListaDeResource );
     }
 
+    const redirect = () => {
+        history('/home');
+    }
+    
     return (
         <PrimeReactProvider>
             <div className='container'>
@@ -24,6 +31,8 @@ function ReqResPage() {
                     <div className='col-md-12 col-lg-6 mt-3'>
                         <Button label="Get Data Table"
                             onClick={findData} />
+                        <Button label="Go Home"
+                            onClick={redirect} />
                     </div>
                 </div>
             </div>
