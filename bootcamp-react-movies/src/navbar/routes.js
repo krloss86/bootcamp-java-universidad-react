@@ -6,10 +6,12 @@ export const routes = {
         RXJS: '/rxjs',
         REQ_RES: '/reqres',
         CONTEXT_PAGE: '/context',
-        CONTEXT_VIEW_PAGE: '/viewContext'
+        CONTEXT_VIEW_PAGE: '/viewContext',
+        LOGIN: '/login'
     },
     privates : {
         ADMIN: '/admin',
-        ACCOUNT: '/account'
+        ACCOUNT: '/account',
+        PROFILE: '/profile'
     }
 };

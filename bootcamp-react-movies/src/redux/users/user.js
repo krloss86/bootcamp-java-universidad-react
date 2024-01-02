@@ -21,7 +21,9 @@ const saveInLocalStorage = (key,value) => {
 const InitialState = getUserFromLocalStorage(USER_KEY);
 const UserEmptyState = {
     name: '',
-    email: ''
+    email: '',
+    surname: '',
+    avatar: ''
 };
 //raname de variables
 

@@ -12,6 +12,8 @@ import Component1view1 from "./views/components/Component1";
 import AuthGuard from "./commons/AuthGuard";
 import { Account } from "./account/Account";
 import Admin from "./admin/Admin";
+import { Profile } from "./profile/ui/Profile";
+import { Login } from "./login/ui/Login";
 //lazy loading (falta)
 //rxjs (OK)
 //redux (OK)
@@ -34,10 +36,12 @@ export function AppRouter () {
                         <Route path={routes.publicas.CONTEXT_VIEW_PAGE} element={<Component1view1/>}/>
                     </Route>
 
+                    <Route path={routes.publicas.LOGIN} element={<Login/>}/>
                     {/* rutas privadas: usuario debe estar logueado */}
                     <Route element={<AuthGuard/>}>
                         <Route path={routes.privates.ACCOUNT} element={<Account/>}/>
                         <Route path={routes.privates.ADMIN} element={<Admin/>}/>
+                        <Route path={routes.privates.PROFILE} element={<Profile/>}/>
                     </Route>
                 </Routes>
             </BrowserRouter>
