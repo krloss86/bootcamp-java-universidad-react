@@ -1,8 +1,30 @@
-import React from 'react'
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { NavLink, useNavigate } from "react-router-dom";
 import { routes } from './routes';
+import { useDispatch, useSelector } from 'react-redux';
+import { resetUser } from '../redux/users/user';
 
 function Navbar (){
+
+    //necesito saber si existe en redux 
+    const user = useSelector(store => store.users);
+    const dispatcher = useDispatch();
+    const navigate = useNavigate();
+
+    const [userLogged,setUserLogged] = useState(false);
+
+    const logout = () => {
+        //dispath al redux del action logout
+        dispatcher(resetUser());
+
+        navigate(routes.publicas.LOGIN);
+    }
+
+    //efectos => 
+    useEffect(()=> {
+        setUserLogged(prev  => !!user.token);
+    },[user.token]);
+
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
@@ -21,13 +43,22 @@ function Navbar (){
                             Profile
                         </NavLink>
                     </li>
-                    <li className="nav-item">
-                        <NavLink className="nav-link active" 
-                            aria-current="page"
-                            to={routes.publicas.LOGIN}>
-                            Login
-                        </NavLink>
-                    </li>
+                    { !userLogged ?
+                        <li className="nav-item">
+                            <NavLink className="nav-link active" 
+                                aria-current="page"
+                                to={routes.publicas.LOGIN}>
+                                Login
+                            </NavLink>
+                        </li>
+                        :
+                        <li className="nav-item">
+                            <button className='btn btn-danger'
+                                onClick={logout}>
+                                Logout 
+                            </button>
+                        </li>
+                    }
                 </ul>
                 <form className="d-flex" role="search">
                     <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>

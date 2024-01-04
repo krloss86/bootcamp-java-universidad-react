@@ -2,6 +2,14 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const USER_KEY = 'user';
 
+const UserEmptyState = {
+    name: '',
+    email: '',
+    surname: '',
+    avatar: '',
+    token:  ''
+};
+
 const getUserFromLocalStorage = (USER_KEY) => {
     let user = localStorage.getItem(USER_KEY);
     if(!user) {
@@ -19,12 +27,6 @@ const saveInLocalStorage = (key,value) => {
 
 /*estado inicial del user slice (dentro del store) */
 const InitialState = getUserFromLocalStorage(USER_KEY);
-const UserEmptyState = {
-    name: '',
-    email: '',
-    surname: '',
-    avatar: ''
-};
 //raname de variables
 
 //crear una funcion
